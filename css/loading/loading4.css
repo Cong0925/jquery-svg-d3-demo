@@ -1,0 +1,51 @@
+/* 光点闪烁
+效果描述：
+多个小光点按照一定的节奏依次闪烁，形成一种有序的闪烁动画。 */
+
+.circle-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #2196f3;
+    animation: rotate-circle 3s infinite linear;
+}
+
+.dot4 {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #82b1ff;
+    border-radius: 50%;
+    top: -7.5px;
+    left: 42.5px;
+    animation: flash-dot 1s infinite ease-in-out alternate;
+}
+
+.dot4:nth-child(2) { animation-delay: 0.3s; }
+.dot4:nth-child(3) { animation-delay: 0.6s; }
+.dot4:nth-child(4) { animation-delay: 0.9s; }
+
+.loading-text {
+    margin-top: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #82b1ff;
+}
+
+@keyframes rotate-circle {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes flash-dot {
+    0% { opacity: 0.1; }
+    100% { opacity: 1; }
+}

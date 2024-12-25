@@ -1,0 +1,66 @@
+/* 扩散波纹
+效果描述：
+从中心向外扩散的波纹效果，仿佛水滴落在水面。 */
+
+.ripple {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.ripple::before, .ripple::after {
+    content: '';
+    position: absolute;
+    border: 4px solid #d1c4e9; /* 浅紫色波纹 */
+    border-radius: 50%;
+    animation: ripple-animation 1.5s infinite ease-in-out;
+    opacity: 0;
+    pointer-events: none
+
+;
+}
+
+.ripple::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.ripple::after {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+}
+
+.loading-text {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: flicker 2s infinite;
+    color: #d1c4e9; /* 浅紫色文字 */
+}
+
+@keyframes ripple-animation {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}

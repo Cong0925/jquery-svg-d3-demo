@@ -1,0 +1,63 @@
+/* 折纸效果
+效果描述：
+一个像折纸一样的动画效果，模拟纸片的折叠和展开。 */
+
+.paper-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.paper {
+    width: 100%;
+    height: 100%;
+    background-color: #bdbdbd;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    animation: fold-unfold 3s infinite ease-in-out;
+}
+
+.paper::before, .paper::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    transform-origin: top left;
+}
+
+.paper::before {
+    transform: rotateY(90deg);
+    right: 0;
+}
+
+.paper::after {
+    transform: rotateX(90deg);
+    bottom: 0;
+}
+
+.loading-text {
+    margin-top: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #bdbdbd;
+}
+
+@keyframes fold-unfold {
+    0%, 100% {
+        transform: rotateX(0) rotateY(0);
+    }
+    25% {
+        transform: rotateX(180deg) rotateY(0);
+    }
+    50% {
+        transform: rotateX(180deg) rotateY(180deg);
+    }
+    75% {
+        transform: rotateX(0) rotateY(180deg);
+    }
+}

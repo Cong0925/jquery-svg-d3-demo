@@ -1,0 +1,116 @@
+body,
+html {margin: 0;padding: 0;}
+ul,li{list-style: none;margin: 0;padding: 0;}
+svg {background-color: #fdfcfc;position: relative;overflow: hidden;}
+/* 去除文字复制选择效果 */
+body {
+    -webkit-user-select: none; /* 适用于Safari和一些基于WebKit的浏览器 */
+    -moz-user-select: none;    /* 适用于Firefox浏览器 */
+    -ms-user-select: none;     /* 适用于Internet Explorer和Edge浏览器 */
+    user-select: none;          /* 标准语法，适用于大多数现代浏览器 */
+}
+/* 全局样式 */
+.hide{display: none !important;}
+.d-block{display: block;}
+.d-flex{display: flex;}
+.z-9999{z-index: 9999;}
+/* 定位 */
+.positon-absolute{position: absolute;}
+.left-100{left: 100px;}
+.top-100{top: 100px;}
+.right-50{right: 50px;}
+.bottom-100{bottom: 100px;}
+/* 平移 */
+.transX-60{transform: translateX(-60px);}
+/* 字体 */
+.font30{font-size: 30px !important;}
+.line-height-30{line-height: 30px !important;}
+.text-indent{text-indent: 2em}
+/* 宽度 */
+.w150{width: 150px !important;}
+.w30{width: 30px !important;}
+.w40{width: 40px !important;}
+/* 高度 */
+.h100{height: 100px !important;}
+/* margin */
+.m0{margin: 0;}
+.m10{margin: 10px !important;}
+/* margin-left */
+.mL10{margin-left: 10px !important;}
+/* margin-top */
+.mT10{margin-top: 10px !important;}
+/* margin-right */
+.mR10{margin-right: 10px !important;}
+.mR20{margin-right: 20px !important;}
+.mR50{margin-right: 50px !important;}
+/* margin-bottom */
+.mB10{margin-bottom: 10px !important;}
+.mB50{margin-bottom: 50px !important;}
+/* padding */
+.p10{padding: 10px !important;}
+.pL10{padding-left: 10px !important;}
+.pT10{padding-top: 10px !important;}
+.pR10{padding-right: 10px !important;}
+.pB10{padding-bottom: 10px !important;}
+/* 鼠标移入的效果 */
+.default-hover:hover {cursor: default;}/* 鼠标移入变为默认箭头型（恢复默认鼠标指针样式） */
+.none-hover:hover{cursor: none;} /* 无指针被渲染 */
+.context-menu-hover:hover {cursor: context-menu;}/* 鼠标移入变为context-menu型（常用于弹出上下文菜单操作提示） */
+.help-hover:hover {cursor: help;}/* 鼠标移入变为帮助型（常用于提供帮助信息提示） */
+.pointer-hover:hover {cursor: pointer;}/* 鼠标移入变为手型（可点击提示） */
+.progress-hover:hover {cursor: progress;}/* 鼠标移入变为progress型（常用于表示进度相关操作提示） */
+.wait-hover:hover {cursor: wait;}/* 鼠标移入变为等待型（表示系统正忙碌，需等待） */
+.cell-hover:hover {cursor: cell;}/* 鼠标移入变为cell型（常用于表格单元格相关操作提示） */
+.crosshair-hover:hover {cursor: crosshair;}/* 鼠标移入变为十字型（常用于精确选择或定位） */
+.text-hover:hover {cursor: text;}/* 鼠标移入变为文本选择型（用于文本输入/选择区域） */
+.vertical-text-hover:hover{cursor: vertical-text;} /* 指示垂直文字可被选中 */
+.alias-hover:hover {cursor: alias;}/* 鼠标移入变为alias型（常用于表示别名相关操作提示） */
+.copy-hover:hover {cursor: copy;}/* 鼠标移入变为copy型（常用于表示复制操作提示） */
+.move-hover:hover {cursor: move;}/* 鼠标移入变为移动型（用于可拖动元素提示） */
+.no-drop-hover:hover {cursor: no-drop;}/* 鼠标移入变为no-drop型（常用于表示禁止拖放操作提示） */
+.not-allowed-hover:hover {cursor: not-allowed;}/* 鼠标移入变为禁止型（表示操作不可行） */
+.grab-hover:hover {cursor: grab;}/* 鼠标移入变为grab型（常用于表示抓取操作提示） */
+.grabbing-hover:hover {cursor: grabbing;}/* 鼠标移入变为grabbing型（常用于表示正在抓取操作提示） */
+.col-resize-hover:hover {cursor: col-resize;}/* 鼠标移入变为左右双向箭头型（常用于可左右调整元素提示） */
+.row-resize-hover:hover {cursor: row-resize;}/* 鼠标移入变为上下双向箭头型（常用于可上下调整元素提示） */
+.n-resize-hover:hover{cursor: n-resize ;} /* 上 移动边框时样式 */
+.e-resize-hover:hover{cursor: e-resize ;} /* 右 移动边框时样式 */
+.s-resize-hover:hover{cursor: s-resize ;} /* 下 移动边框时样式 */
+.w-resize-hover:hover{cursor: w-resize ;} /* 左 移动边框时样式 */	
+.ne-resize-hover:hover{cursor: ne-resize ;} /* 右上 移动边框时样式 */	
+.nw-resize-hover:hover{cursor: nw-resize ;} /* 左上 移动边框时样式 */	
+.se-resize-hover:hover{cursor: se-resize ;} /* 右下 移动边框时样式 */	
+.sw-resize-hover:hover{cursor: sw-resize ;} /* 左下 移动边框时样式 */	
+.ew-resize-hover:hover{cursor: ew-resize ;} /* 左右 指示双向重新设置大小 */	
+.ns-resize-hover:hover{cursor: ns-resize ;} /* 上下 指示双向重新设置大小 */	
+.nesw-resize-hover:hover{cursor: nesw-resize ;} /* 右上左下 指示双向重新设置大小 */	
+.nwse-resize-hover:hover{cursor: nwse-resize ;} /* 左上右下 指示双向重新设置大小 */	
+.zoom-in-hover:hover {cursor: zoom-in;}/* 鼠标移入变为放大型（常用于图片/地图等放大操作提示） */
+.zoom-out-hover:hover {cursor: zoom-out;}/* 鼠标移入变为缩小型（常用于图片/地图等缩小操作提示） */
+/* 线条填充色 */
+.line-fill-color-red{fill: red !important;} 
+.line-fill-color-orange{fill: orange !important;} 
+.line-fill-color-yellow{fill: yellow !important;} 
+.line-fill-color-green{fill: green !important;} 
+.line-fill-color-cyan{fill: cyan !important;} 
+.line-fill-color-blue{fill: blue !important;} 
+.line-fill-color-purple{fill: purple !important;} 
+.line-fill-color-gray{fill: gray !important;} 
+/* color颜色 */
+.c-red{color: red !important;}
+.c-orange{color: orange !important;}
+.c-yellow{color: yellow !important;}
+.c-green{color: green !important;}
+.c-cyan{color: cyan !important;}
+.c-blue{color: blue !important;}
+.c-purple{color: purple !important;}
+.c-gray{color: gray !important;}
+/* 背景色 */
+.bc-red{color: red !important;}
+.bc-orange{color: orange !important;}
+.bc-yellow{color: yellow !important;}
+.bc-green{color: green !important;}
+.bc-cyan{color: cyan !important;}
+.bc-blue{color: blue !important;}
+.bc-purple{color: purple !important;}
+.bc-gray{color: gray !important;}

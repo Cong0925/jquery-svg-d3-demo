@@ -1,0 +1,49 @@
+/* 跳动点阵
+效果描述：
+多个小点依次上下跳动，形成一种动态的点阵效果。 */
+
+.dot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    background-color: #ffeb3b;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+    left: 30px;
+
+    animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+    left: 60px;
+    animation-delay: 0.6s;
+}
+
+.loading-text {
+    margin-top: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ffeb3b;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}

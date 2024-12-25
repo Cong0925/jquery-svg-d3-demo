@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg_d3_画布</title>
+    <link rel="stylesheet" href="./css/loading/loading8.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style></style>
+</head>
+
+<body>
+    <div class="bugs-li-tip z-9999 positon-absolute top-100 right-50 move-hover">
+        <div class="mB50">
+            <p class="m0 mB10">bugs:</p>
+            <p class="m0 mB10 text-indent"></p>
+        </div>
+        <div class="mB50">
+            <p class="m0 mB10">待开发功能：</p>
+            <p class="m0 mB10 text-indent"></p>
+        </div>
+        
+    </div>
+    <div style="background-color: rgb(170, 170, 170);width: 100%; height: 50px;">
+        <h1>节点画布</h1>
+    </div>
+    <div class="layout" style="display: flex;">
+        <div class="menu" style="min-width: 200px;">
+            <div class="exampleSvg">
+                <svg  width="100%" height="150px" style="background-color: #9e9e9e40;overflow: visible;z-index: 999999;">
+                    <!-- <circle r="20" cx="50" cy="50" fill="red" stroke="black"></circle> -->
+                </svg>
+            </div>
+            <ul>
+                <li class="setNodeDataForm exampleNodeName">
+                    <label>节点名称：</label>
+                    <input class="w150 nodeName" placeholder="输入节点名称">
+                </li>
+                <li class="setNodeDataForm exampleNodeShape">
+                    <label>节点形状：</label>
+                    <select id="nodeShapeSelect">
+                        <option value="circle">圆形</option>
+                        <option value="triangle">三角形</option>
+                        <option value="rect">矩形</option>
+                        <option value="polygon">正多边形</option>
+                    </select>
+                </li>
+                <li class="setNodeDataForm exampleNodeShapeParamsSet">
+                    <div  type="circle" class="nodeShapeParamsSet slt">
+                        <label>半径：</label><input class="w40 circleRadius" type="number" value="20">
+                    </div>
+                    <div  type="triangle" class="nodeShapeParamsSet hide">
+                        <label>外接圆半径：</label><input class="w40 triangleTheRadius" type="number" vaule="20">
+                    </div>
+                    <div  type="rect" class="nodeShapeParamsSet hide" >
+                        <div  type="rect" class="nodeShapeParamsSet d-flex hide mT10" >
+                            <div class="mR10"><label>宽：</label><input class="w40 rectWidth" type="number" value="40"></div>    
+                            <div class="mR10"><label>高：</label><input class="w40 rectHeight" type="number" value="30"></div>
+                        </div>   
+                        <div  type="rect" class="nodeShapeParamsSet d-flex hide mT10" >
+                            <div><label>节点圆角X：</label><input class="w40 rectRoundX" type="number" value="0" min="0"></div>
+                        </div>   
+                        <div  type="rect" class="nodeShapeParamsSet d-flex hide mT10" >
+                            <div><label>节点圆角Y：</label><input class="w40 rectRoundY" type="number" value="0" min="0"></div>
+                        </div>   
+                    </div>
+                    <div  type="polygon" class="nodeShapeParamsSet d-flex hide">
+                        <div class="mR20"><label>边数：</label><input class="w40 polygonSideNumber" type="number"></div>
+                        <div><label>外接圆半径：</label><input class="w40 polygonTheRadius" type="number"></div>
+                    </div>
+                    <span class="c-red hide nodeShapeParamsSetTip">* 数值必须为正整数！</span>
+                </li>
+                
+                <li class="setNodeDataForm d-flex exampleNodeFill">
+                    <label class="line-height-30">节点填充颜色：</label>
+                    <input class="mL10 setColorBlock" type="color" id="color" value="#FF0000">
+                </li>
+                <li class="setNodeDataForm d-flex exampleNodeStroke">
+                    <label class="line-height-30">节点边框颜色：</label>
+                    <input class="mL10 setColorBlock" type="color" id="color" value="#000000">
+                </li>
+                <li class="setLineDataForm d-flex hide">
+                    <label class="line-height-30">线条颜色：</label>
+                    <input class="mL10 setColorBlock" type="color" id="color">
+                </li>
+                <li class="setLineDataForm hide">
+                    <label>线条样式：</label>
+                    <select id="lineShapeSelect">
+                        <option value="solid">————</option>
+                        <option value="dashed">--</option>
+                        <option value="dotted">---</option>
+                        <option value="customizeLine">自定义间隔</option>
+                    </select>
+                </li>
+                <li class="setLineDataForm hide mT10">
+                        <label>线条宽度：</label><input class="w40 solidWidth" type="number" value="1" min="1">
+                    <div type="dashed" class="lineShapeParamsSet hide">
+                        <div><label>每段长度：</label><input class="w40 dashedLong" type="number" value="10" min="1"></div>
+                        <div><label>空格长度：</label><input class="w40 dashedSpace" type="number" value="0" min="0"></div>
+                    </div>
+                    <div  type="dotted" class="lineShapeParamsSet hide">
+                        <div><label>每段长度1：</label><input class="w40 dottedLong1" type="number" value="6" min="1"></div>
+                        <div><label>每段长度2：</label><input class="w40 dottedLong2" type="number" value="6" min="1"></div>
+                        <div class="hide"><label>空格长度：</label><input class="w40 dottedSpace" type="number" value="2" min="0"></div>
+                    </div>
+                    <div type="customizeLine" class="lineShapeParamsSet hide">
+                        <label>自定义设置(整数加空格填写)：</label>
+                        <input class="w150 customizeStrokeDasharray" placeholder="输入想要的间隔形式">
+                    </div>
+                    <span class="c-red hide lineShapeParamsSetTip">* 数值必须为正整数！</span>
+                </li>
+                <!-- <li class="setNodeDataForm hide">
+                    <label>额外参数：</label>
+                    <input class="w150" placeholder="输入节点名称">
+                </li> -->
+            </ul>
+        </div>
+        <div id="svgArea" class="svgBox" style="margin: auto;width: 100%;height: 620px;overflow: hidden;position: relative;border: 2px solid #a9a6a6;">
+            <div class="loading-mask hide">
+                <div>
+                    <div class="grid-container">
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                        <div class="grid-item"></div>
+                    </div>
+                    <div class="loading-text transX-60">...画布数据加载中...</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-force.v1.min.js"></script>
+    <script type="text/javascript" src="./js/utils/convertColorToHex.js"></script>
+    <script type="text/javascript" src="./js/tipPanal.js"></script>
+    <script type="text/javascript" src="./js/global.js"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

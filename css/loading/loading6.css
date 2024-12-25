@@ -1,0 +1,47 @@
+/* 渐变旋转
+效果描述：
+一个带有渐变效果的圆形旋转动画，颜色随着旋转而变化。 */
+
+.polygon-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.polygon {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #ff5722, #ff9800, #ffeb3b, #4caf50, #2196f3, #3f51b5, #9c27b0);
+    background-size: 400%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: rotate-polygon 2s infinite linear, color-shift 4s infinite ease-in-out;
+}
+
+.loading-text {
+    margin-top: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ff9800;
+}
+
+@keyframes rotate-polygon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes color-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}

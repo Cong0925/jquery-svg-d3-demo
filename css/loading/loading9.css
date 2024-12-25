@@ -1,0 +1,46 @@
+/* 升降波浪
+效果描述：
+一个波浪效果的加载动画，多个元素按照一定的顺序上下移动。 */
+
+.wave-container {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background-color: #00acc1;
+    border-radius: 40%;
+    animation: wave-animation 2s infinite ease-in-out;
+    transform: translateX(-50%);
+}
+
+.wave:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.loading-text {
+    margin-top: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #00acc1;
+}
+
+@keyframes wave-animation {
+    0% {
+        top: 100%;
+    }
+    50% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+    }
+}

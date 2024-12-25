@@ -1,0 +1,49 @@
+/* 加载转圈
+效果描述：
+一个经典的转圈加载动画，常见于许多网站的加载提示中。 */
+
+.loading-animation {
+    width: 80px;
+    height: 80px;
+    background: conic-gradient(from 0deg at 50% 50%, #ff6f61 0%, #f44336 100%);
+    border-radius: 50%;
+    position: relative;
+    animation: spin 1.5s linear infinite;
+}
+
+.loading-animation::before, .loading-animation::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background-color: #f8dcdc;
+    border-radius: 50%;
+}
+
+.loading-animation::before {
+    inset: 10px;
+    background: radial-gradient(circle at center, #1f1f1f 0%, #2e2e2e 100%);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-text {
+    margin-top: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: flicker 2s infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
